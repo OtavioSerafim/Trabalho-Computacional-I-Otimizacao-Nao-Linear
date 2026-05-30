@@ -22,6 +22,24 @@
 \section{Problema 1}
 
 Resolução do primeiro problema apresentado no trabalho.
+Ao analisar a função: $$\omega^{2} = R(x) = \frac{x^{T}Kx}{x^{T}Mx}$$ é possível observar que ela não é estritamente quadrática mas sim uma razão entre duas formas quadráticas. Por esse fator, e por ser uma função contínua com poucas variáveis demos prioridade ao método de Quasi-Newton para resolução do problema.
+
+A função objetivo foi implementada utilizando operações matriciais junto da biblioteca scipy para realizar a minimização. Executando o código, obtivemos os seguintes resultados:
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.85\textwidth]{Figure_1.png}
+    \caption{Contorno do quociente de Rayleigh com trajetória do BFGS (esquerda) e convergência de R(x) (direita).}
+    \label{fig:problema1}
+\end{figure}
+\begin{verbatim}
+Vetor x ótimo: [0.60837422 1.09624041 1.36697757]
+Função-objetivo final R(x*): 0.19806226425143267
+Número de iterações: 4
+Número de avaliações: 20
+\end{verbatim}
+O valor final da função-objetivo, $R(\mathbf{x}^*) \approx 0.1981$, corresponde ao autovalor mínimo do sistema. Fisicamente, este valor representa o quadrado da frequência natural fundamental ($\omega_1^2$). Portanto, a primeira frequência natural do sistema é $\omega_1 \approx 0.445$ rad/s.
+Do ponto de vista computacional, o método de Quasi-Newton apresentou alta eficiência, convergindo para o ponto ótimo em apenas 4 iterações e 20 avaliações da função-objetivo. O gráfico de convergência corrobora esse desempenho, demonstrando uma queda acentuada do valor de $R(\mathbf{x})$ já nas iterações iniciais, seguida de rápida estabilização no mínimo global esperado para a configuração física do problema. A escolha do método se provou perfeitamente adequada para a topologia da função.
+
 
 \section{Problema 2}
 
